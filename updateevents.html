@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<head>
+<title>EZKhoj</title>
+<link rel="stylesheet" href="css/normalize.css">
+<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/main.css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  
+
+<script type="text/javacript">
+		function logoff()
+		{
+		var question=confirm("Do you want to Logout?");
+		if(question==true)
+			window.location.href="index.html";
+		}
+	</script>
+  
+  
+  <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('venue');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsnkkcSV0zSQFyQf7A1VkxWhQ_KmdK17Q&libraries=places&callback=initAutocomplete"
+         async defer></script>
+ <style type="text/css">
+		*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+   }
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #3ac7dc;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #84bcec;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #35e2c0;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
+}
+	</style>
+	
+</head>
+<body background="images/events.jpg">
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<img src="images/icon.gif" height="150" width="150">
+			<h1><a href="#"><font color="white" size="10" face="Monotype Corsiva">EZKhoj</font></a></h1>
+
+		</div>
+		<div id="menu">
+			<ul>
+				<li ><a href="homepage.php" accesskey="1" title="">Homepage</a></li>
+				<li><a href="userprofile.php" accesskey="2" title="">My Profile</a></li>
+				<li class="active"><a href="#" accesskey="4" title="">Update Events</a></li>
+				<li><a href="aboutus.html" accesskey="3" title="">About Us</a></li>
+				<li><a href="contactus.html" accesskey="5" title="">Contact Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="position:absolute;top:10px;right:10px; height:100px; width:150px;">
+<center>
+	
+	<button style="background:transparent;border:none;" onClick="logoff()"><img src="images/logoff.png" height="60" width="70"></button>
+	</center>
+
+
+</div>
+<br/>
+
+<form action="update.php" method="post">
+      
+        <h1>Update Events</h1>
+		
+        
+        <fieldset>
+          <legend><span class="number">1</span>Event basic info</legend>
+          <label for="name">Title:</label>
+          <input type="text" required id="name" name="name">
+          
+          <label for="date">Date:</label>
+          <input type="text" required id="mail" name="date">
+          
+          <label for="venue">Venue:</label>
+          <input type="text" required id="venue" name="venue">
+          <div id="map" style="height:245px;width:450px" ></div>
+          
+          <label>Organizer:</label>
+          <input type="text" required id="organizer" name="Organizer">
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Detailed info</legend>
+          <label for="bio">Introduction:</label>
+          <textarea id="bio" name="bio"></textarea>
+        </fieldset>
+        <fieldset>
+        <label for="Category">Category:</label>
+        <select id="Category" name="Category">
+          <optgroup label="Health">
+            <option value="Routine checkup">Routine Checkup</option>
+            <option value="First Aid Service">First Aid Service</option>
+            <option value="Free health services">Free health services</option>
+			 <option value="Awareness Campaign">Awareness Campaign</option>
+          </optgroup>
+          <optgroup label="Education">
+            <option value="Exhibtions">Exhibtions</option>
+            <option value="Expos">Expos</option>
+			<option value="Fairs">Fairs</option>
+			<option value="Meetups">Meetups</option>
+			<option value="Workshops">Workshops</option>
+			<option value="Symposiums">Symposiums</option>
+          </optgroup>
+		  <optgroup label="Entertainment">
+            <option value="Concert">Concert</option>
+            <option value="DJ Nights">DJ Nights</option>
+			<option value="Party">Party</option>
+			<option value="Press Conference">Press Conference</option>
+			<option value="Receptions">Receptions</option>
+			
+          </optgroup>
+		  <optgroup label="Sports">
+            <option value="Cycling">Cycling</option>
+            <option value="Marathon">Marathon</option>
+			
+          </optgroup>
+          <optgroup label="Business">
+            <option value="Seminars">Seminars</option>
+            <option value="Conference">Conference</option>
+			<option value="Product Launch">Product Launch</option>
+          </optgroup>
+          <optgroup label="Other">
+          </optgroup>
+        </select>
+        
+		
+        
+          <label>Event Type:</label>
+          <input type="checkbox" id="free"  name="eventtype" value="free"><label class="light" for="free">Free</label><br>
+            <input type="checkbox" id="priced"  name="eventtype" value="priced"><label class="light" for="priced">Priced</label><br>
+        
+        </fieldset>
+        <button type="submit">Update</button>
+      </form>
+	  
+<br/>
+<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>Kalanki, Kathmandu
+			<br />Nepal</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Telephone: 
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>technocrats@gmail.com</span>
+		</div>
+	</div>
+</div>
+<br/>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<?php
+  session_start();
+
+  if (isset($_SESSION['username'])==false) {
+    echo "<script type='text/javascript'>alert('You havent logged in'); window.location.href='index.html';</script>";
+  }
+?>
+<!DOCTYPE html>
+<head>
+<title>EZKhoj</title>
+<link rel="stylesheet" href="css/normalize.css">
+<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/main.css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script type="text/javascript">
+	function logoff()
+	{
+		var question=confirm("Do you want to Logout?");
+		if(question==true)
+			window.location.href="index.html";
+	}
+</script>
+ <style type="text/css">
+		*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+  background:url('images/contact.jpg');
+  background-size: 1500px 1300px;
+    background-repeat: no-repeat;
+}
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #3ac7dc;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #84bcec;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #35e2c0;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
+}
+	</style>
+</head>
+<body background="images/bg.jpg">
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<img src="images/icon.gif" height="150" width="150">
+			<h1><a href="#"><font color="white" size="10" face="Monotype Corsiva">EZKhoj</font></a></h1>
+
+		</div>
+		<div id="menu">
+			<ul>
+				<li ><a href="homepage.php" accesskey="1" title="">Homepage</a></li>
+				<li><a href="userprofile.php" accesskey="2" title="">My Profile</a></li>
+				<li ><a href="updateevents.html" accesskey="4" title="">Update Events</a></li>
+				<li><a href="aboutus.html" accesskey="3" title="">About Us</a></li>
+				<li class="active"><a href="contactus.html" accesskey="5" title="">Contact Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="position:absolute;top:10px;right:10px; height:100px; width:150px;">
+<center>
+	
+	<button style="background:transparent;border:none;" onClick="logoff()"><img src="images/logoff.png" height="60" width="70"></button>
+	</center>
+
+</div>
+<br/>
+
+<form action="leavemessage.php" method="post">
+      
+        <h1>CONTACT US</h1>
+        
+        <fieldset>
+          <legend><span class="number">1</span>Your info</legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          
+          <label for="date">Email:</label>
+          <input type="text" id="mail" name="email">
+          
+          <label for="venue">Phone:</label>
+          <input type="text" id="phone" name="phone">
+          
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Message Section</legend>
+          <label for="bio">Leave a Message:</label>
+          <textarea id="message" name="message"></textarea>
+        </fieldset>
+        
+        <button type="submit">Send</button>
+      </form>
+	  
+<br/>
+<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>Kalanki, Kathmandu
+			<br />Nepal</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Telephone: 
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>technocrats@gmail.com</span>
+		</div>
+	</div>
+</div>
+<br/>
+
+</body>
+</html>

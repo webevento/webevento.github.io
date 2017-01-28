@@ -1,0 +1,152 @@
+<?php
+	session_start();
+
+	if (isset($_SESSION['username'])==false) {
+		echo "<script type='text/javascript'>alert('You havent logged in'); window.location.href='index.html';</script>";
+	}
+?>
+<!DOCTYPE html>
+<head>
+<title>EZKhoj</title>
+<link rel="stylesheet" href="css/normalize.css">
+<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/main.css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<script type="text/javascript">
+	function logoff()
+	{
+		var question=confirm("Do you want to Logout?");
+		if(question==true)
+			window.location.href="index.html";
+	}
+</script>
+<body background="images/bg.jpg">
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<img src="images/icon.gif" height="150" width="150">
+			<h1><a href="#"><font color="white" size="10" face="Monotype Corsiva">EZKhoj</font></a></h1>
+
+		</div>
+		<div id="menu">
+			<ul>
+				<li ><a href="homepage.php" accesskey="1" title="">Homepage</a></li>
+				<li ><a href="userprofile.php" accesskey="2" title="">My Profile</a></li>
+				<li ><a href="updateevents.html" accesskey="4" title="">Update Events</a></li>
+				<li class="active"><a href="#" accesskey="3" title="">About Us</a></li>
+				<li><a href="contactus.html" accesskey="5" title="">Contact Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="position:absolute;top:10px;right:10px; height:100px; width:150px;">
+<center>
+
+	<br/><button style="background:transparent;border:none;" onClick="logoff()"><img src="images/logoff.png" height="60" width="70"></button>
+	</center>
+
+</div>
+<style type="text/css">
+	.circle1{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background: red;
+	display:inline-block;
+}
+	.circle2{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background: red;
+	margin:auto;
+	display:inline-block;
+}
+
+.circle3{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background: red;
+	margin:auto;
+	display:inline-block;
+}
+</style>
+    
+</head>
+<body>
+<br/><br/><br/><br/>	
+<center>
+
+<div class="circle1">
+	<img style="border-radius:50%;" src="images/nipesh.jpg" height="300" width="300"><br/><br/><h3>Nipesh Shrestha</h3> <br/><br/>
+	
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div style="position:absolute; top:970px; left:250px;" >
+	<a href="https://www.facebook.com/KneePaCe"><img src="images/fb.png" height="70" width="80"></a>
+	<a href="https://twitter.com/nipeshshr"><img src="images/twitter.png" height="70" width="80"></a>
+</div>
+<div style="position:absolute; top:1070px; left:250px;" >
+	<a href="https://plus.google.com/u/0/103689265343697111752/posts"><img src="images/google+.png" height="70" width="80"></a>
+	<a href="https://np.linkedin.com/in/nipeshshrestha"><img src="images/linkedin.png" height="70" width="80"></a>
+</div>
+
+<div class="circle2">
+	<img style="border-radius:50%;" src="images/saurya.jpg" height="300" width="300"><br/><br/><h3>Saurya Paudel</h3><Br/><br/>
+	
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div style="position:absolute; top:970px; left:600px;" >
+	<a href="https://www.facebook.com/saurya.paudel"><img src="images/fb.png" height="70" width="80"></a>
+	<a href="https://twitter.com/sauryapaudel"><img src="images/twitter.png" height="70" width="80"></a>
+</div>
+<div style="position:absolute; top:1070px; left:600px;" >
+	<a href="https://plus.google.com/u/2/116555957531071423890"><img src="images/google+.png" height="70" width="80"></a>
+	<a href="https://np.linkedin.com/in/saurya-paudel-683a6782"><img src="images/linkedin.png" height="70" width="80"></a>
+</div>
+
+<div class="circle3">
+<img style="border-radius:50%;" src="images/suluv.jpg" height="300" width="300"><br/><br/><h3>Bibek Kumar Sardar</h3><br/><br/>
+</div>
+
+
+
+<div style="position:absolute; top:970px; left:950px;" >
+	<a href="https://www.facebook.com/KneePaCe"><img src="images/fb.png" height="70" width="80"></a>
+	<a href="https://www.facebook.com/KneePaCe"><img src="images/twitter.png" height="70" width="80"></a>
+</div>
+<div style="position:absolute; top:1070px; left:950px;" >
+	<a href="https://www.facebook.com/KneePaCe"><img src="images/google+.png" height="70" width="80"></a>
+	<a href="https://www.facebook.com/KneePaCe"><img src="images/linkedin.png" height="70" width="80"></a>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</center>
+<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>Kalanki, Kathmandu
+			<br />Nepal</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Telephone: 
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>technocrats@gmail.com</span>
+		</div>
+	</div>
+</div>
+<br/>
+
+</body>
+</html>
