@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>EZkhoj home</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/login.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!---tabs-->
+<script type="text/javascript" src="js/JFCore.js"></script>
+		<script type="text/javascript">
+			(function() {
+				JC.init({
+					domainKey: ''
+				});
+				})();
+				
+			function checkPassword()
+			{
+			 var x=document.getElementById('pass').value;
+			 var y=document.getElementById('reppass').value;
+			 if(x===y)
+			 {
+				document.getElementById("passwordvalidation").innerHTML = "Password matched";
+			 }
+			 else
+			 {
+				
+				document.getElementById("passwordvalidation").innerHTML = "Password do not match";
+			 }
+			}
+			
+			
+			
+			function checkUsername()
+			{
+				var letters = /^[A-Za-z]+$/;  
+				var uname=document.getElementById("Username");
+				if(uname.value.match(letters))  
+				{  
+					document.getElementById("uservalidation").innerHTML = "Good Username";
+				}  
+				else  
+				{  
+					document.getElementById("uservalidation").innerHTML = "Bad Username"; 
+					uname.focus();
+				}
+					
+				
+			}
+			
+			function validateEmail(emailField){
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+			if (reg.test(emailField.value) == false) 
+			{
+				document.getElementById("emailvalidation").innerHTML = "Invalid Email Address";
+				document.getElementById("Email").focus();
+			}
+
+			else
+			{
+				document.getElementById("emailvalidation").innerHTML = "Valid Email Address";
+				
+			}
+
+		}
+		</script>
+</head>
+<body background="images/bg.jpg">
+<div class="wrap">
+<div class="main">
+	<!---start-nav---->
+	<div class="nav">
+		<!---start-top-nav---->
+		<div class="top-nav">
+				
+		</div>
+		<!---end-top-nav---->
+		<!---start-text---->
+		<div class="text">
+			<font color="#FFFFFF" size="4" face="Monotype Corsiva">Welcome to </font><br/><font color="#FFFFFF" size="7" face="Monotype Corsiva"> EZKhoj</font>
+		</div>
+		<!---end-text---->
+		
+	          <div class="clear"></div>
+	           <!-- end_login_box -->
+		</div>
+		<!---end-nav---->
+	    <div class="clear"></div>
+	    <!---start-camera---->
+		<div class="camera">
+		
+			<center><img src="images/icon.png" height="300" width="350" alt="">	</center>	
+			
+		</div>
+	    <div class="clear"> </div>
+	    <!---end-camera---->
+        <!----start-tabs--->
+		<div class="row">
+		
+			<div class="grid_12 columns">
+				<div class="tab style-1">
+			    					<dl>
+			 			             	 <dd class="users"><a class="user" href="#tab1" >Login</a></dd>
+			    						 <dd class="messages"><a class="msg" href="#tab2">SignUp</a></dd>
+			    					</dl>
+		    					<ul>
+		    						<li class="active">
+										<form method="POST" action="authentication.php">	
+					    				<div class="form">		
+												
+												<input type="text" class="username" name="Username" placeholder="Username" required/>
+												
+												<input type="password" class="textbox"  name="Password" placeholder="Password" required/>
+												<input type="submit" value="Login">
+									    </div>
+										</form>
+									</li>
+		    						<li>
+										<form method="POST" action="adduser.php">
+		    							<div class="form" >		
+												<input type="text" required  class="name"  name="Fullname" placeholder="Fullname" >
+												<input type="text" required class="username"  id="Username" name="Username" placeholder="Username" onBlur="checkUsername()" ><span style="position:absolute; top:685px; right:510px;"><P id='uservalidation' ></P></span>
+												<input type="password" required  class="textbox"  id="pass" name="Password" placeholder="Password" >
+												<input type="password" required  class="textbox"  id="reppass" name="Password" placeholder="Repeat Password" onBlur="checkPassword()" ><span style="position:absolute; top:785px; right:510px;"><P id='passwordvalidation' ></P></span>
+												<input type="text" required class="textbox" id="Email" name="Email" placeholder="Email" onblur="validateEmail(this);"><span style="position:absolute; top:840px; right:510px;"><P id='emailvalidation' ></P></span>
+												<input type="submit" value="Create Account">
+	
+									    </div>
+										</form>
+									</li>		
+		    					</ul>
+				 </div>
+		   </div>            
+	   </div>	
+	   
+       <!----end-tabs--->
+	   <!--footer-->		
+	   <div class="footer">
+		   <p>By registering,I accept the <a href="#">  Terms of Service  </a> and   <a href="#">Privecy Policy  </a>
+	   </div>
+       <!---end-footer---->	
+</div>	
+</div>
+<div class="clear"> </div>
+</body>
+</html>
